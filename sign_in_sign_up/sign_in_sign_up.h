@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include<QPushButton>
-#include<QWidget>
-#include<QWindow>
+#include "sign_in_class_header.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SIGN_IN_SIGN_UP; }
@@ -17,10 +17,12 @@ class SIGN_IN_SIGN_UP : public QMainWindow
 public:
     SIGN_IN_SIGN_UP(QWidget *parent = nullptr);
     ~SIGN_IN_SIGN_UP();
+
+private slots:
+    void going_to_sign_in();
+    //void going_to_sign_up();
 private:
     Ui::SIGN_IN_SIGN_UP *ui;
-    QPushButton *SIGN_IN;
-    QPushButton *SIGN_UP;
 
 };
 #endif // SIGN_IN_SIGN_UP_H

@@ -10,12 +10,15 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
+    sign_in_class_header.cpp \
     sign_in_sign_up.cpp
 
 HEADERS += \
+    sign_in_class_header.h \
     sign_in_sign_up.h
 
 FORMS += \
+    sign_in_class_header.ui \
     sign_in_sign_up.ui
 
 # Default rules for deployment.
