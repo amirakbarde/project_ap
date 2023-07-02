@@ -27,6 +27,8 @@ private slots:
 private:
     Ui::sign_in_class_header *ui;
     QMainWindow *window_forgot_password;
+    QLineEdit *path_e;
+    QLineEdit *path_e_t;
     QLineEdit *telephone;
     QLineEdit *telepho_username;
     QLineEdit *userna;

@@ -10,16 +10,22 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
+    menue.cpp \
     sign_in_class_header.cpp \
-    sign_in_sign_up.cpp
+    sign_in_sign_up.cpp \
+    sign_up.cpp
 
 HEADERS += \
+    menue.h \
     sign_in_class_header.h \
-    sign_in_sign_up.h
+    sign_in_sign_up.h \
+    sign_up.h
 
 FORMS += \
+    menue.ui \
     sign_in_class_header.ui \
-    sign_in_sign_up.ui
+    sign_in_sign_up.ui \
+    sign_up.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -28,3 +34,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     images.qrc
+
+SUBDIRS += \
+
+DISTFILES += \

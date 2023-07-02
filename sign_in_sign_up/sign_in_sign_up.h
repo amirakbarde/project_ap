@@ -20,7 +20,7 @@ public:
 
 private slots:
     void going_to_sign_in();
-    //void going_to_sign_up();
+    void sign_up__();
 private:
     Ui::SIGN_IN_SIGN_UP *ui;
 

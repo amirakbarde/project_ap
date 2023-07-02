@@ -5,6 +5,7 @@
 #include<QWidget>
 #include<QWindow>
 #include "sign_in_class_header.h"
+#include"sign_up.h"
 
 SIGN_IN_SIGN_UP::SIGN_IN_SIGN_UP(QWidget *parent)
     : QMainWindow(parent)
@@ -28,6 +29,7 @@ SIGN_IN_SIGN_UP::SIGN_IN_SIGN_UP(QWidget *parent)
     SIGN_UP->setFont(QFont("Curlz MT",14));
     SIGN_UP->setGeometry(0,120,300,33);
     SIGN_UP->setStyleSheet("background-color: rgb(255,219,75)");
+    connect(SIGN_UP, SIGNAL(clicked()),this, SLOT(sign_up__()));
     connect(SIGN_IN, SIGNAL(clicked()),this, SLOT(going_to_sign_in()));
 }
 
@@ -40,7 +42,10 @@ void SIGN_IN_SIGN_UP::going_to_sign_in(){
     sign_in_class_header* object_sign_in=new sign_in_class_header();
     object_sign_in->show();
 }
-/*void sign_up(){
+void SIGN_IN_SIGN_UP::sign_up__(){
+    this->hide();
+    sign_up *obj_sign_up = new sign_up();
+    obj_sign_up->show();
 
-}*/
+}
 

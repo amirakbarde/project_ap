@@ -4,6 +4,7 @@
 #include<QPushButton>
 #include<QString>
 #include<QFile>
+#include "menue.h"
 
 sign_in_class_header::sign_in_class_header(QWidget *parent) :
     QMainWindow(parent),
@@ -24,10 +25,15 @@ sign_in_class_header::sign_in_class_header(QWidget *parent) :
     f_password->setStyleSheet("background-color: rgb(255,219,75)");
     QLabel *username = new QLabel(this);
     QLabel *password = new QLabel(this);
+    QLabel *path_l = new QLabel(this);
     QPushButton *taeed = new QPushButton(this);
+    path_e= new QLineEdit(this);
+    path_e->setFont(QFont("Curlz MT",14));
+    path_e->setGeometry(81,240,220,33);
+    path_e->setStyleSheet("background-color: rgb(255,219,75)");
     taeed->setText("ok");
     taeed->setFont(QFont("Curlz MT",14));
-    taeed->setGeometry(260,240,80,33);
+    taeed->setGeometry(260,280,80,33);
     taeed->setStyleSheet("background-color: rgb(255,219,75)");
     userna = new QLineEdit(this);
     passwo = new QLineEdit(this);
@@ -39,6 +45,10 @@ sign_in_class_header::sign_in_class_header(QWidget *parent) :
     password->setFont(QFont("Curlz MT",14));
     password->setGeometry(0,120,80,33);
     password->setStyleSheet("background-color: rgb(255,219,75)");
+    path_l->setText("path");
+    path_l->setFont(QFont("Curlz MT",14));
+    path_l->setGeometry(0,240,80,33);
+    path_l->setStyleSheet("background-color: rgb(255,219,75)");
     userna->setFont(QFont("Curlz MT",14));
     userna->setGeometry(81,60,220,33);
     userna->setStyleSheet("background-color: rgb(255,219,75)");
@@ -68,20 +78,29 @@ void sign_in_class_header::forgot_password(){
     telephone = new QLineEdit(window_forgot_password);
     QPushButton *taeed = new QPushButton(window_forgot_password);
     telepho_username = new QLineEdit(window_forgot_password);
+    path_e_t = new QLineEdit(window_forgot_password);
     QLabel *username = new QLabel(window_forgot_password);
     username->setFont(QFont("Curlz MT",14));
     username->setText("username : ");
     username->setGeometry(0,60,80,33);
     username->setStyleSheet("background-color: rgb(255,219,75)");
+    QLabel *path = new QLabel(window_forgot_password);
+    path->setFont(QFont("Curlz MT",14));
+    path->setText("path : ");
+    path->setGeometry(0,180,80,33);
+    path->setStyleSheet("background-color: rgb(255,219,75)");
     telephone->setFont(QFont("Curlz MT",14));
     telephone->setGeometry(81,120,220,33);
     telephone->setStyleSheet("background-color: rgb(255,219,75)");
     telepho_username->setFont(QFont("Curlz MT",14));
     telepho_username->setGeometry(81,60,220,33);
     telepho_username->setStyleSheet("background-color: rgb(255,219,75)");
+    path_e_t->setFont(QFont("Curlz MT",14));
+    path_e_t->setGeometry(81,180,220,33);
+    path_e_t->setStyleSheet("background-color: rgb(255,219,75)");
     taeed->setText("ok");
     taeed->setFont(QFont("Curlz MT",14));
-    taeed->setGeometry(260,200,100,33);
+    taeed->setGeometry(260,220,100,33);
     taeed->setStyleSheet("background-color: rgb(255,219,75)");
     phone_num->setFont(QFont("Curlz MT",14));
     phone_num->setText("telephone : ");
@@ -95,10 +114,9 @@ void sign_in_class_header::forgot_password(){
     QString user = userna->text();
     QString pass = passwo->text();
     QString f_pass;
-    QString path = "C:/sign_in_sign_up/" + user + ".txt";
+    QString path = path_e->text() + user + ".txt";
     QFile file(path);
     if(!file.exists()){
-
     }
     else{
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -106,8 +124,11 @@ void sign_in_class_header::forgot_password(){
             for(int i=0;i<2;i++){
                 f_pass = stream.readLine();
             }
-            if(f_pass == pass )
+            if(f_pass == pass ){
                 this->hide();
+                menue *obj = new menue();
+                obj->getting(user,path_e->text());
+            }
         }
     }
     file.close();
@@ -116,7 +137,7 @@ void sign_in_class_header::forgot_password(){
     QString telep = telephone->text();
     QString usernn = telepho_username->text();
     QString f_telep;
-    QString path = "C:/sign_in_sign_up/" + usernn + ".txt";
+    QString path = path_e_t->text() + usernn + ".txt";
     //qDebug()<<path;
     QFile file(path);
     if(!file.exists()){
@@ -128,8 +149,12 @@ void sign_in_class_header::forgot_password(){
             for(int i=0;i<4;i++){
                 f_telep = stream.readLine();
             }
-            if(f_telep == telep )
+            if(f_telep == telep ){
                 window_forgot_password->hide();
+            menue *obj = new menue();
+            obj->getting(usernn,path_e_t->text());
+            }
+
         }
     }
     file.close();

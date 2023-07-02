@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 10.0.1, 2023-06-20T14:14:55. -->
+<!-- Written by QtCreator 10.0.1, 2023-07-03T02:13:23. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -239,9 +239,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">sign_in_sign_up2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/sign_in_sign_up/sign_in_sign_up.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/sign_in_sign_up/sign_in_sign_up.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/amirk/skullKing_noname_16-/sign_in_sign_up/sign_in_sign_up.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/amirk/skullKing_noname_16-/sign_in_sign_up/sign_in_sign_up.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
