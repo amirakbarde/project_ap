@@ -5,6 +5,8 @@
 #include<QFile>
 #include<QLineEdit>
 #include <QTextStream>
+#include"server_king1.h"
+#include"client_king_1.h"
 menue::menue(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::menue)
@@ -27,6 +29,7 @@ menue::menue(QWidget *parent) :
     start->setFont(QFont("Curlz MT",14));
     start->setGeometry(0,60,220,33);
     start->setStyleSheet("background-color: rgb(255,219,75)");
+    connect(start,SIGNAL(clicked()),this,SLOT(game()));
     QPushButton *change = new QPushButton(this);
     change->setText("change");
     change->setFont(QFont("Curlz MT",14));
@@ -221,4 +224,59 @@ void menue::change2(int round, QString nn){
     username=nn;
     }
 }
+}
+
+void menue::game(){
+    this->hide();
+    final = new QMainWindow();
+    final->resize(200,300);
+    QPushButton *client = new QPushButton(final);
+    QPixmap skull(":/images/skull.jpg");
+    skull = skull.scaled(QSize(75,75), Qt::KeepAspectRatio);
+    QPalette skull_;
+    skull_.setBrush(QPalette::Window, skull);
+    final->setPalette(skull_);
+    client->setText("client");
+    client->setFont(QFont("Curlz MT",14));
+    client->setGeometry(0,60,80,33);
+    client->setStyleSheet("background-color: rgb(255,219,75)");
+    client->show();
+    QPushButton *server = new QPushButton(final);
+    server->setText("server");
+    server->setFont(QFont("Curlz MT",14));
+    server->setGeometry(0,120,80,33);
+    server->setStyleSheet("background-color: rgb(255,219,75)");
+    server->show();
+    QPushButton *back = new QPushButton(final);
+    back->setText("back");
+    back->setFont(QFont("Curlz MT",14));
+    back->setGeometry(0,180,80,33);
+    back->show();
+    back->setStyleSheet("background-color: rgb(255,219,75)");
+    final->show();
+    connect(back, &QPushButton::clicked, this, [this]() {
+        final->hide();
+        getting(username,path);
+    });
+    connect(client, &QPushButton::clicked, this, [this]() {
+        final->hide();
+        last(1);
+    });
+    connect(server, &QPushButton::clicked, this, [this]() {
+        final->hide();
+        last(0);
+    });
+}
+
+void menue::last(int c_s){
+    if(c_s==0){
+    server_king1 *obj = new server_king1();
+    obj->getting(username,path);
+    obj->show();
+    }
+    else {
+    client_king_1 *obj = new client_king_1();
+    obj->getting(username,path);
+    obj->show();
+    }
 }
